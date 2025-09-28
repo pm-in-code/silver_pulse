@@ -1,24 +1,22 @@
-//
-//  ContentView.swift
-//  SilverPulse1.1
-//
-//  Created by Dmitry on 27/09/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appSession: AppSession
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            Group {
+                if appSession.isOnboardingComplete {
+                    LobbyView()
+                } else {
+                    OnboardingFlowView(isComplete: .constant(appSession.isOnboardingComplete))
+                }
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AppSession())
 }
