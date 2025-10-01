@@ -47,3 +47,4 @@ Assets.xcassets/
 1. Убедитесь, что файлы находятся в правильной папке
 2. Проверьте, что Contents.json файлы содержат правильные имена файлов
 3. Попробуйте удалить DerivedData: Xcode → Preferences → Locations → DerivedData → Delete
+

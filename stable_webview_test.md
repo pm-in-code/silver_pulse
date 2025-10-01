@@ -78,3 +78,4 @@ Product → Run (Cmd+R)
 - "WebView did finish loading"
 - "WebView content length: [число]"
 - "Found [число] buttons on the page"
+

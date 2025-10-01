@@ -115,3 +115,4 @@ Product → Run (Cmd+R)
 - "DOM loaded, enabling audio"
 - "Button X: [текст кнопки]"
 - "Button clicked: [текст кнопки]"
+
