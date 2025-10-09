@@ -111,3 +111,4 @@ For development, the app includes a mock API mode (`USE_MOCK_API = true`) that:
 4. Implement user authentication
 5. Add accessibility features
 6. Add unit and UI tests
+

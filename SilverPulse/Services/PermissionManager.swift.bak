@@ -1,0 +1,57 @@
+import Foundation
+import AVFoundation
+import UIKit
+
+class PermissionManager: ObservableObject {
+    static let shared = PermissionManager()
+    
+    @Published var microphonePermissionStatus: AVAudioSession.RecordPermission = .undetermined
+    
+    private init() {
+        microphonePermissionStatus = AVAudioSession.sharedInstance().recordPermission
+    }
+    
+    func requestMicrophonePermission(completion: @escaping (Bool) -> Void) {
+        AVAudioSession.sharedInstance().requestRecordPermission { [weak self] granted in
+            DispatchQueue.main.async {
+                self?.microphonePermissionStatus = AVAudioSession.sharedInstance().recordPermission
+                completion(granted)
+            }
+        }
+    }
+    
+    func checkMicrophonePermission() -> Bool {
+        return AVAudioSession.sharedInstance().recordPermission == .granted
+    }
+    
+    func showMicrophonePermissionAlert() {
+        let alert = UIAlertController(
+            title: "Microphone Permission Required",
+            message: "Silver Pulse needs microphone access to enable voice chat with your coach. Please enable microphone permission in Settings.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsURL)
+            }
+        })
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first,
+           let rootViewController = window.rootViewController {
+            rootViewController.present(alert, animated: true)
+        }
+    }
+    
+    func setupAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: [.allowBluetooth, .allowBluetoothA2DP])
+            try audioSession.setActive(true)
+        } catch {
+            print("Failed to setup audio session: \(error)")
+        }
+    }
+}

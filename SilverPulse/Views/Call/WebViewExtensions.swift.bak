@@ -1,0 +1,100 @@
+import Foundation
+import UIKit
+import WebKit
+
+// MARK: - WebView Configuration Extensions
+
+extension WKWebViewConfiguration {
+    static func optimizedForVoiceChat() -> WKWebViewConfiguration {
+        return WebViewLoader.createOptimizedConfiguration()
+    }
+}
+
+// MARK: - WebView Loading Extensions
+
+extension WKWebView {
+    func loadWithRetry(url: URL, maxRetries: Int = 3, completion: @escaping (Bool) -> Void) {
+        var retryCount = 0
+        
+        func attemptLoad() {
+            let request = URLRequest(url: url)
+            self.load(request)
+            
+            // Check if page loaded successfully after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                if self.url != nil && !self.isLoading {
+                    completion(true)
+                } else if retryCount < maxRetries {
+                    retryCount += 1
+                    print("WebView load failed, retrying... (\(retryCount)/\(maxRetries))")
+                    attemptLoad()
+                } else {
+                    completion(false)
+                }
+            }
+        }
+        
+        attemptLoad()
+    }
+    
+    func centerContentIfNeeded() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let contentSize = self.scrollView.contentSize
+            let screenHeight = UIScreen.main.bounds.height
+            
+            // Center content if it's smaller than 50% of screen height
+            if contentSize.height < screenHeight / 2 && contentSize.height > 0 {
+                let offsetY = (contentSize.height / 2.0) - self.center.y
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: false)
+            }
+        }
+    }
+    
+    func injectVoiceChatScripts() {
+        WebViewLoader.injectVoiceChatSupport(into: self)
+        WebViewLoader.setupErrorHandling(for: self)
+        WebViewPerformanceOptimizer.optimize(self)
+    }
+}
+
+// MARK: - Network Status Extensions
+
+extension NWPathMonitor {
+    func startMonitoring(on queue: DispatchQueue = DispatchQueue.global()) {
+        self.start(queue: queue)
+    }
+    
+    func stopMonitoring() {
+        self.cancel()
+    }
+}
+
+// MARK: - UIApplication Extensions
+
+extension UIApplication {
+    func keepScreenAwake(_ enabled: Bool) {
+        self.isIdleTimerDisabled = enabled
+    }
+}
+
+// MARK: - Error Handling
+
+enum WebViewError: Error, LocalizedError {
+    case networkUnavailable
+    case microphonePermissionDenied
+    case loadingTimeout
+    case invalidURL
+    
+    var errorDescription: String? {
+        switch self {
+        case .networkUnavailable:
+            return "Network connection is not available"
+        case .microphonePermissionDenied:
+            return "Microphone permission is required for voice chat"
+        case .loadingTimeout:
+            return "WebView failed to load content within timeout"
+        case .invalidURL:
+            return "Invalid URL provided"
+        }
+    }
+}

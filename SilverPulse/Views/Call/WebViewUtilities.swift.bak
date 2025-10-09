@@ -1,0 +1,209 @@
+import Foundation
+import WebKit
+import UIKit
+
+// MARK: - WebView Loading Utilities
+
+class WebViewLoader {
+    static func createOptimizedConfiguration() -> WKWebViewConfiguration {
+        let config = WKWebViewConfiguration()
+        
+        // Media playback settings
+        config.allowsInlineMediaPlayback = true
+        config.mediaTypesRequiringUserActionForPlayback = []
+        config.allowsAirPlayForMediaPlayback = true
+        config.allowsPictureInPictureMediaPlayback = true
+        
+        // User agent for better compatibility
+        config.applicationNameForUserAgent = "SilverPulse/1.0"
+        
+        // Content rules for better performance
+        let contentRuleList = """
+        [
+            {
+                "trigger": {
+                    "url-filter": ".*"
+                },
+                "action": {
+                    "type": "css-display-none",
+                    "selector": ".advertisement, .ads, [class*='ad-']"
+                }
+            }
+        ]
+        """
+        
+        WKContentRuleListStore.default().compileContentRuleList(
+            forIdentifier: "SilverPulseRules",
+            encodedContentRuleList: contentRuleList
+        ) { ruleList, error in
+            if let ruleList = ruleList {
+                config.userContentController.add(ruleList)
+            }
+        }
+        
+        return config
+    }
+    
+    static func injectVoiceChatSupport(into webView: WKWebView) {
+        let voiceChatScript = """
+        (function() {
+            // Override getUserMedia to ensure microphone access
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                const originalGetUserMedia = navigator.mediaDevices.getUserMedia;
+                navigator.mediaDevices.getUserMedia = function(constraints) {
+                    console.log('Requesting media access with constraints:', constraints);
+                    return originalGetUserMedia.call(this, constraints);
+                };
+            }
+            
+            // Ensure audio context is active
+            if (window.AudioContext || window.webkitAudioContext) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                const audioContext = new AudioContext();
+                
+                if (audioContext.state === 'suspended') {
+                    // Resume audio context on user interaction
+                    document.addEventListener('touchstart', function() {
+                        audioContext.resume();
+                    }, { once: true });
+                }
+            }
+            
+            // Add visual feedback for microphone status
+            const style = document.createElement('style');
+            style.textContent = \"""
+                .microphone-indicator {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    width: 40px;
+                    height: 40px;
+                    background: rgba(0, 0, 0, 0.7);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    color: white;
+                    font-size: 20px;
+                }
+                .microphone-indicator.active {
+                    background: rgba(76, 175, 80, 0.8);
+                }
+                .microphone-indicator.error {
+                    background: rgba(244, 67, 54, 0.8);
+                }
+            \""";
+            document.head.appendChild(style);
+            
+            // Create microphone indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'microphone-indicator';
+            indicator.innerHTML = '🎤';
+            document.body.appendChild(indicator);
+            
+            // Monitor microphone status
+            if (navigator.mediaDevices) {
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        indicator.classList.add('active');
+                        stream.getTracks().forEach(track => {
+                            track.addEventListener('ended', () => {
+                                indicator.classList.remove('active');
+                                indicator.classList.add('error');
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        indicator.classList.add('error');
+                        console.error('Microphone access failed:', error);
+                    });
+            }
+        })();
+        """
+        
+        let userScript = WKUserScript(
+            source: voiceChatScript,
+            injectionTime: .atDocumentEnd,
+            forMainFrameOnly: true
+        )
+        
+        webView.configuration.userContentController.addUserScript(userScript)
+    }
+    
+    static func setupErrorHandling(for webView: WKWebView) {
+        let errorScript = """
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+            window.webkit.messageHandlers.errorHandler.postMessage({
+                message: e.message,
+                filename: e.filename,
+                lineno: e.lineno,
+                colno: e.colno,
+                error: e.error ? e.error.toString() : 'Unknown error'
+            });
+        });
+        
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+            window.webkit.messageHandlers.errorHandler.postMessage({
+                message: 'Unhandled promise rejection',
+                error: e.reason ? e.reason.toString() : 'Unknown error'
+            });
+        });
+        """
+        
+        let userScript = WKUserScript(
+            source: errorScript,
+            injectionTime: .atDocumentStart,
+            forMainFrameOnly: false
+        )
+        
+        webView.configuration.userContentController.addUserScript(userScript)
+        
+        // Add message handler for errors
+        let errorHandler = ErrorHandler()
+        webView.configuration.userContentController.add(errorHandler, name: "errorHandler")
+    }
+}
+
+// MARK: - Error Handler
+
+class ErrorHandler: NSObject, WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == "errorHandler" {
+            if let body = message.body as? [String: Any] {
+                print("WebView JavaScript Error: \(body)")
+            }
+        }
+    }
+}
+
+// MARK: - WebView Performance Optimizer
+
+class WebViewPerformanceOptimizer {
+    static func optimize(_ webView: WKWebView) {
+        // Disable unnecessary features for better performance
+        webView.configuration.suppressesIncrementalRendering = false
+        webView.configuration.allowsInlineMediaPlayback = true
+        webView.configuration.mediaTypesRequiringUserActionForPlayback = []
+        
+        // Optimize scroll view
+        webView.scrollView.isScrollEnabled = false
+        webView.scrollView.bounces = false
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        
+        // Set background colors
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor.black
+        webView.scrollView.backgroundColor = UIColor.black
+    }
+    
+    static func preloadWebView() -> WKWebView {
+        let config = WebViewLoader.createOptimizedConfiguration()
+        let webView = WKWebView(frame: .zero, configuration: config)
+        optimize(webView)
+        return webView
+    }
+}

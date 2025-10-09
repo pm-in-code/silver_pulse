@@ -37,3 +37,4 @@ class TimeSync: ObservableObject {
         return interval + timeDrift
     }
 }
+

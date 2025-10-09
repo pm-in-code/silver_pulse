@@ -38,3 +38,4 @@ struct Coach: Identifiable, Codable {
         )
     ]
 }
+

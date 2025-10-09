@@ -28,3 +28,4 @@ struct ContentView: View {
     ContentView()
         .environmentObject(AppSession())
 }
+

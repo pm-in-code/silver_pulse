@@ -70,3 +70,4 @@ struct MoodConfirmationView: View {
         onNext: {}
     )
 }
+

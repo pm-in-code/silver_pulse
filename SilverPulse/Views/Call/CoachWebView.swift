@@ -1,6 +1,8 @@
 import SwiftUI
 import WebKit
 import AVFoundation
+import Network
+import Combine
 
 struct CoachWebView: View {
     let coach: Coach
@@ -10,6 +12,10 @@ struct CoachWebView: View {
     @State private var showingTimeUpAlert = false
     @State private var backgroundTimer: Timer?
     @State private var backgroundTime: TimeInterval = 0
+    @State private var isNetworkAvailable = true
+    @State private var shouldKeepScreenAwake = false
+    @State private var networkMonitor: NWPathMonitor?
+    @State private var networkQueue = DispatchQueue(label: "NetworkMonitor")
     
     var body: some View {
         VStack(spacing: 0) {
@@ -42,7 +48,9 @@ struct CoachWebView: View {
             // WebView
             WebViewRepresentable(
                 url: buildWebViewURL(),
-                onNavigation: handleNavigation
+                onNavigation: handleNavigation,
+                isNetworkAvailable: $isNetworkAvailable,
+                shouldKeepScreenAwake: $shouldKeepScreenAwake
             )
             .background(Color.black)
         }
@@ -61,6 +69,10 @@ struct CoachWebView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             stopBackgroundTimer()
+            appDidBecomeActive()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            appWillResignActive()
         }
         .alert("End Call", isPresented: $showingEndCallAlert) {
             Button("Cancel", role: .cancel) { }
@@ -80,6 +92,7 @@ struct CoachWebView: View {
     }
     
     private func setupCall() {
+        setupNetworkMonitoring()
         requestMicrophonePermission()
         quotaViewModel.refreshQuota()
         
@@ -93,6 +106,7 @@ struct CoachWebView: View {
                 },
                 receiveValue: { session in
                     Analytics.shared.trackCallStart(session)
+                    setKeepScreenAwake(true)
                 }
             )
             .store(in: &cancellables)
@@ -117,6 +131,8 @@ struct CoachWebView: View {
     
     private func cleanupCall() {
         stopBackgroundTimer()
+        networkMonitor?.cancel()
+        setKeepScreenAwake(false)
         endCall()
     }
     
@@ -166,11 +182,48 @@ struct CoachWebView: View {
     }
     
     private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - Network Monitoring
+    
+    private func setupNetworkMonitoring() {
+        networkMonitor = NWPathMonitor()
+        networkMonitor?.pathUpdateHandler = { [self] path in
+            DispatchQueue.main.async {
+                if path.status == .satisfied {
+                    isNetworkAvailable = true
+                    print("Network connection restored")
+                } else {
+                    isNetworkAvailable = false
+                    print("Network connection lost")
+                    // End call if network is lost
+                    endCall()
+                }
+            }
+        }
+        networkMonitor?.start(queue: networkQueue)
+    }
+    
+    // MARK: - Screen Management
+    
+    private func setKeepScreenAwake(_ enabled: Bool) {
+        shouldKeepScreenAwake = enabled
+        UIApplication.shared.isIdleTimerDisabled = enabled
+    }
+    
+    private func appWillResignActive() {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    private func appDidBecomeActive() {
+        UIApplication.shared.isIdleTimerDisabled = shouldKeepScreenAwake
+    }
 }
 
 struct WebViewRepresentable: UIViewRepresentable {
     let url: URL
     let onNavigation: (WKNavigation) -> Void
+    @Binding var isNetworkAvailable: Bool
+    @Binding var shouldKeepScreenAwake: Bool
     
     func makeUIView(context: Context) -> WKWebView {
         let configuration = WKWebViewConfiguration()
@@ -179,8 +232,11 @@ struct WebViewRepresentable: UIViewRepresentable {
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
+        webView.uiDelegate = context.coordinator
         webView.isOpaque = false
         webView.backgroundColor = UIColor.black
+        webView.scrollView.backgroundColor = UIColor.black
+        webView.scrollView.isScrollEnabled = false
         
         return webView
     }
@@ -194,7 +250,7 @@ struct WebViewRepresentable: UIViewRepresentable {
         Coordinator(self)
     }
     
-    class Coordinator: NSObject, WKNavigationDelegate {
+    class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         let parent: WebViewRepresentable
         
         init(_ parent: WebViewRepresentable) {
@@ -212,9 +268,18 @@ struct WebViewRepresentable: UIViewRepresentable {
             decisionHandler(.allow)
         }
         
+        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+            // Show loading indicator if needed
+        }
+        
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             parent.onNavigation(navigation)
         }
+        
+        func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+            print("WebView failed to load: \(error.localizedDescription)")
+        }
+        
     }
 }
 

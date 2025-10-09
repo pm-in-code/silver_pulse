@@ -167,3 +167,4 @@ struct CoachCard: View {
     LobbyView()
         .environmentObject(AppSession())
 }
+

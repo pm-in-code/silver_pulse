@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Combine
 
 class AppSession: ObservableObject {
     @Published var selectedMood: Mood?
@@ -90,6 +91,7 @@ class AppSession: ObservableObject {
         
         // Save remaining seconds when it changes
         $remainingSeconds
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] seconds in
                 self?.lastRemainingSeconds = seconds
             }

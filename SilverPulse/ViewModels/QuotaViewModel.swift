@@ -78,3 +78,4 @@ extension QuotaViewModel {
         return Double(remainingSeconds) / Double(totalSeconds)
     }
 }
+

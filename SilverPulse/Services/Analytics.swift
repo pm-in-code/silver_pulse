@@ -70,3 +70,4 @@ class Analytics {
         // Examples: Firebase Analytics, Mixpanel, Amplitude, etc.
     }
 }
+

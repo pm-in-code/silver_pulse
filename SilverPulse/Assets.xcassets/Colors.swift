@@ -5,3 +5,4 @@ extension Color {
     static let accent = Color(red: 0.427, green: 0.427, blue: 1.0) // #6D6DFF
     static let bg = Color(red: 0.969, green: 0.969, blue: 0.988) // #F7F7FC
 }
+

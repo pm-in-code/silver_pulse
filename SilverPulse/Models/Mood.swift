@@ -13,3 +13,4 @@ struct Mood: Identifiable, Codable {
         Mood(id: "overwhelmed", title: "Overwhelmed", imageName: "cat_overwhelmed", message: "I'm feeling overwhelmed and need clarity")
     ]
 }
+

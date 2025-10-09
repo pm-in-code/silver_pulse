@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A44D45A2E981D97009EFF52 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4592E981D97009EFF52 /* AppSession.swift */; };
+		0A44D4732E98264C009EFF52 /* TimeSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4642E98264C009EFF52 /* TimeSync.swift */; };
+		0A44D4742E98264C009EFF52 /* UserQuota.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D45E2E98264C009EFF52 /* UserQuota.swift */; };
+		0A44D4752E98264C009EFF52 /* FinalConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D46D2E98264C009EFF52 /* FinalConfirmationView.swift */; };
+		0A44D4762E98264C009EFF52 /* CallSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D45B2E98264C009EFF52 /* CallSession.swift */; };
+		0A44D4772E98264C009EFF52 /* CoachSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D46C2E98264C009EFF52 /* CoachSelectionView.swift */; };
+		0A44D4782E98264C009EFF52 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4612E98264C009EFF52 /* APIClient.swift */; };
+		0A44D4792E98264C009EFF52 /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D46A2E98264C009EFF52 /* LobbyView.swift */; };
+		0A44D47A2E98264C009EFF52 /* CoachWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4682E98264C009EFF52 /* CoachWebView.swift */; };
+		0A44D47B2E98264C009EFF52 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D45D2E98264C009EFF52 /* Mood.swift */; };
+		0A44D47C2E98264C009EFF52 /* MoodConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D46E2E98264C009EFF52 /* MoodConfirmationView.swift */; };
+		0A44D47D2E98264C009EFF52 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4622E98264C009EFF52 /* KeychainService.swift */; };
+		0A44D47E2E98264C009EFF52 /* Coach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D45C2E98264C009EFF52 /* Coach.swift */; };
+		0A44D47F2E98264C009EFF52 /* OnboardingFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4702E98264C009EFF52 /* OnboardingFlowView.swift */; };
+		0A44D4802E98264C009EFF52 /* QuotaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4632E98264C009EFF52 /* QuotaService.swift */; };
+		0A44D4812E98264C009EFF52 /* QuotaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4662E98264C009EFF52 /* QuotaViewModel.swift */; };
+		0A44D4822E98264C009EFF52 /* MoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D46F2E98264C009EFF52 /* MoodSelectionView.swift */; };
+		0A44D4832E98264C009EFF52 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4602E98264C009EFF52 /* Analytics.swift */; };
 		A1234567890ABCDEF001 /* SilverPulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF002 /* SilverPulseApp.swift */; };
 		A1234567890ABCDEF003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF004 /* ContentView.swift */; };
 		A1234567890ABCDEF005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF006 /* Assets.xcassets */; };
@@ -14,6 +32,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A44D4592E981D97009EFF52 /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
+		0A44D45B2E98264C009EFF52 /* CallSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSession.swift; sourceTree = "<group>"; };
+		0A44D45C2E98264C009EFF52 /* Coach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coach.swift; sourceTree = "<group>"; };
+		0A44D45D2E98264C009EFF52 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		0A44D45E2E98264C009EFF52 /* UserQuota.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuota.swift; sourceTree = "<group>"; };
+		0A44D4602E98264C009EFF52 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		0A44D4612E98264C009EFF52 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0A44D4622E98264C009EFF52 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		0A44D4632E98264C009EFF52 /* QuotaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotaService.swift; sourceTree = "<group>"; };
+		0A44D4642E98264C009EFF52 /* TimeSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSync.swift; sourceTree = "<group>"; };
+		0A44D4662E98264C009EFF52 /* QuotaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotaViewModel.swift; sourceTree = "<group>"; };
+		0A44D4682E98264C009EFF52 /* CoachWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachWebView.swift; sourceTree = "<group>"; };
+		0A44D46A2E98264C009EFF52 /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
+		0A44D46C2E98264C009EFF52 /* CoachSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachSelectionView.swift; sourceTree = "<group>"; };
+		0A44D46D2E98264C009EFF52 /* FinalConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalConfirmationView.swift; sourceTree = "<group>"; };
+		0A44D46E2E98264C009EFF52 /* MoodConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodConfirmationView.swift; sourceTree = "<group>"; };
+		0A44D46F2E98264C009EFF52 /* MoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionView.swift; sourceTree = "<group>"; };
+		0A44D4702E98264C009EFF52 /* OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowView.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF000 /* SilverPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1234567890ABCDEF002 /* SilverPulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilverPulseApp.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +68,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A44D45F2E98264C009EFF52 /* Models 2 */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D45B2E98264C009EFF52 /* CallSession.swift */,
+				0A44D45C2E98264C009EFF52 /* Coach.swift */,
+				0A44D45D2E98264C009EFF52 /* Mood.swift */,
+				0A44D45E2E98264C009EFF52 /* UserQuota.swift */,
+			);
+			path = "Models 2";
+			sourceTree = "<group>";
+		};
+		0A44D4652E98264C009EFF52 /* Services 2 */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D4602E98264C009EFF52 /* Analytics.swift */,
+				0A44D4612E98264C009EFF52 /* APIClient.swift */,
+				0A44D4622E98264C009EFF52 /* KeychainService.swift */,
+				0A44D4632E98264C009EFF52 /* QuotaService.swift */,
+				0A44D4642E98264C009EFF52 /* TimeSync.swift */,
+			);
+			path = "Services 2";
+			sourceTree = "<group>";
+		};
+		0A44D4672E98264C009EFF52 /* ViewModels 2 */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D4662E98264C009EFF52 /* QuotaViewModel.swift */,
+			);
+			path = "ViewModels 2";
+			sourceTree = "<group>";
+		};
+		0A44D4692E98264C009EFF52 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D4682E98264C009EFF52 /* CoachWebView.swift */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		0A44D46B2E98264C009EFF52 /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D46A2E98264C009EFF52 /* LobbyView.swift */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		0A44D4712E98264C009EFF52 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D46C2E98264C009EFF52 /* CoachSelectionView.swift */,
+				0A44D46D2E98264C009EFF52 /* FinalConfirmationView.swift */,
+				0A44D46E2E98264C009EFF52 /* MoodConfirmationView.swift */,
+				0A44D46F2E98264C009EFF52 /* MoodSelectionView.swift */,
+				0A44D4702E98264C009EFF52 /* OnboardingFlowView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0A44D4722E98264C009EFF52 /* Views 2 */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D4692E98264C009EFF52 /* Call */,
+				0A44D46B2E98264C009EFF52 /* Lobby */,
+				0A44D4712E98264C009EFF52 /* Onboarding */,
+			);
+			path = "Views 2";
+			sourceTree = "<group>";
+		};
 		A1234567890ABCDEF010 = {
 			isa = PBXGroup;
 			children = (
@@ -43,6 +148,10 @@
 		A1234567890ABCDEF011 /* SilverPulse */ = {
 			isa = PBXGroup;
 			children = (
+				0A44D45F2E98264C009EFF52 /* Models 2 */,
+				0A44D4652E98264C009EFF52 /* Services 2 */,
+				0A44D4672E98264C009EFF52 /* ViewModels 2 */,
+				0A44D4722E98264C009EFF52 /* Views 2 */,
 				A1234567890ABCDEF002 /* SilverPulseApp.swift */,
 				A1234567890ABCDEF004 /* ContentView.swift */,
 				A1234567890ABCDEF013 /* Models */,
@@ -91,6 +200,7 @@
 		A1234567890ABCDEF016 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
+				0A44D4592E981D97009EFF52 /* AppSession.swift */,
 			);
 			path = AppState;
 			sourceTree = "<group>";
@@ -201,6 +311,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A44D45A2E981D97009EFF52 /* AppSession.swift in Sources */,
+				0A44D4732E98264C009EFF52 /* TimeSync.swift in Sources */,
+				0A44D4742E98264C009EFF52 /* UserQuota.swift in Sources */,
+				0A44D4752E98264C009EFF52 /* FinalConfirmationView.swift in Sources */,
+				0A44D4762E98264C009EFF52 /* CallSession.swift in Sources */,
+				0A44D4772E98264C009EFF52 /* CoachSelectionView.swift in Sources */,
+				0A44D4782E98264C009EFF52 /* APIClient.swift in Sources */,
+				0A44D4792E98264C009EFF52 /* LobbyView.swift in Sources */,
+				0A44D47A2E98264C009EFF52 /* CoachWebView.swift in Sources */,
+				0A44D47B2E98264C009EFF52 /* Mood.swift in Sources */,
+				0A44D47C2E98264C009EFF52 /* MoodConfirmationView.swift in Sources */,
+				0A44D47D2E98264C009EFF52 /* KeychainService.swift in Sources */,
+				0A44D47E2E98264C009EFF52 /* Coach.swift in Sources */,
+				0A44D47F2E98264C009EFF52 /* OnboardingFlowView.swift in Sources */,
+				0A44D4802E98264C009EFF52 /* QuotaService.swift in Sources */,
+				0A44D4812E98264C009EFF52 /* QuotaViewModel.swift in Sources */,
+				0A44D4822E98264C009EFF52 /* MoodSelectionView.swift in Sources */,
+				0A44D4832E98264C009EFF52 /* Analytics.swift in Sources */,
 				A1234567890ABCDEF003 /* ContentView.swift in Sources */,
 				A1234567890ABCDEF001 /* SilverPulseApp.swift in Sources */,
 			);
