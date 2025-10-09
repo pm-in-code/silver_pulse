@@ -1,0 +1,32 @@
+{
+  "source": "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/CoachSelectionView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Choose your coach",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 11
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select the coach who resonates with you most",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 16
+        }
+      },
+      {
+        "comment": "",
+        "key": "Continue",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 41
+        }
+      }
+    ]
+  },
+  "version": 1
+}

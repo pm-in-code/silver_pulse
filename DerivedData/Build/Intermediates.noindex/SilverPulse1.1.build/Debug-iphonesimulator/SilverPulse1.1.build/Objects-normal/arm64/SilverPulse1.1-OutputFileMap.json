@@ -1,0 +1,209 @@
+{
+  "" : {
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulse1.1-primary.dia",
+    "emit-module-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulse1.1-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulse1.1-primary-emit-module.dia",
+    "pch" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulse1.1-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulse1.1-primary.swiftdeps"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/AppState/AppSession.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/AppSession~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/ContentView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Models/Coach.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Coach~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Models/Mood.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Mood~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Models/UserQuota.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/UserQuota~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Services/APIClient.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/APIClient~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Services/Analytics.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/Analytics~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Services/KeychainService.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/KeychainService~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Services/QuotaService.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaService~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/SilverPulseApp.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/SilverPulseApp~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/ViewModels/QuotaViewModel.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/QuotaViewModel~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Call/CoachWebView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachWebView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Call/StableWebView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/StableWebView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Lobby/LobbyView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/LobbyView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/CoachSelectionView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/CoachSelectionView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/FinalConfirmationView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/FinalConfirmationView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/MoodConfirmationView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodConfirmationView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/MoodSelectionView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/MoodSelectionView~partial.swiftmodule"
+  },
+  "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/OnboardingFlowView.swift" : {
+    "const-values" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.swiftconstvalues",
+    "dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.d",
+    "diagnostics" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.dia",
+    "index-unit-output-path" : "/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.o",
+    "llvm-bc" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.bc",
+    "object" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.o",
+    "swift-dependencies" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView.swiftdeps",
+    "swiftmodule" : "/Users/dmitry/Desktop/SilverPulse1.1/DerivedData/Build/Intermediates.noindex/SilverPulse1.1.build/Debug-iphonesimulator/SilverPulse1.1.build/Objects-normal/arm64/OnboardingFlowView~partial.swiftmodule"
+  }
+}

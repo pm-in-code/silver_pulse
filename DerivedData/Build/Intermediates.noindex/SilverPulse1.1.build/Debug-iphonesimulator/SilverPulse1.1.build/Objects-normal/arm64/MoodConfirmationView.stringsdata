@@ -1,0 +1,32 @@
+{
+  "source": "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Onboarding/MoodConfirmationView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "I understand you're feeling",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "That's completely okay. We're here to help you feel better.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Let's find your coach",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 49
+        }
+      }
+    ]
+  },
+  "version": 1
+}

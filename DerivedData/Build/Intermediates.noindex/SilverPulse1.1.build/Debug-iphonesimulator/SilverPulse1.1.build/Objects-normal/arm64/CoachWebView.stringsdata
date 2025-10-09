@@ -1,0 +1,72 @@
+{
+  "source": "/Users/dmitry/Desktop/SilverPulse1.1/SilverPulse1.1/Views/Call/CoachWebView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Завершить разговор?",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Время истекло",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Отмена",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Завершить",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ваше время разговора с коучем истекло.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "Время разговора",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "END",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 89
+        }
+      }
+    ]
+  },
+  "version": 1
+}
