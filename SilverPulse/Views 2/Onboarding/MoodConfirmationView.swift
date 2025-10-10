@@ -43,22 +43,23 @@ struct MoodConfirmationView: View {
             
             Spacer()
             
-            // Continue Button
-            Button(action: onNext) {
-                HStack {
-                    Text("Let's find your coach")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                    Image(systemName: "arrow.right")
+                // Continue Button
+                Button(action: onNext) {
+                    HStack {
+                        Text("Let's find your coach")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        Image(systemName: "arrow.right")
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .background(Color.accentColor)
+                    .cornerRadius(12)
                 }
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(Color.accentColor)
-                .cornerRadius(12)
-            }
-            .padding(.horizontal, 24)
-            .padding(.bottom, 32)
+                .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
+                .padding(.horizontal, 24)
+                .padding(.bottom, 32)
         }
         .background(Color(.systemBackground))
     }

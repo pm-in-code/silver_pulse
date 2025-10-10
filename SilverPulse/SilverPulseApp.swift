@@ -3,14 +3,31 @@ import SwiftUI
 @main
 struct SilverPulseApp: App {
     @StateObject private var appSession = AppSession()
+    @StateObject private var loadingManager = LoadingScreenManager()
+    @StateObject private var backgroundMusic = BackgroundMusicService.shared
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(appSession)
-                .onAppear {
-                    setupAudioSession()
+            ZStack {
+                if loadingManager.isLoading {
+                    LoadingScreenView()
+                        .onAppear {
+                            // Simulate loading time
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                loadingManager.finishLoading()
+                                // Start background music after loading
+                                backgroundMusic.startMusicOnOnboarding()
+                            }
+                        }
+                } else {
+                    ContentView()
+                        .environmentObject(appSession)
+                        .environmentObject(backgroundMusic)
+                        .onAppear {
+                            setupAudioSession()
+                        }
                 }
+            }
         }
     }
     

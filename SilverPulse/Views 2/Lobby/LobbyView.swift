@@ -32,23 +32,24 @@ struct LobbyView: View {
                 
                 Spacer()
                 
-                // Call Button
-                Button(action: startCall) {
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        Text("CALL")
-                            .font(.headline)
-                            .fontWeight(.semibold)
+                    // Call Button
+                    Button(action: startCall) {
+                        HStack {
+                            Image(systemName: "phone.fill")
+                            Text("CALL")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(appSession.canStartCall ? Color.green : Color.gray)
+                        .cornerRadius(12)
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(appSession.canStartCall ? Color.green : Color.gray)
-                    .cornerRadius(12)
-                }
-                .disabled(!appSession.canStartCall)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 32)
+                    .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
+                    .disabled(!appSession.canStartCall)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 32)
             }
             .background(Color(.systemGray6))
             .navigationBarHidden(true)
@@ -65,15 +66,16 @@ struct LobbyView: View {
             } message: {
                 Text("Your available time is over for today. See you soon.")
             }
-            .fullScreenCover(isPresented: $showingCallView) {
-                if let coach = appSession.selectedCoach {
-                    CoachWebView(coach: coach)
+                .fullScreenCover(isPresented: $showingCallView) {
+                    if let coach = appSession.selectedCoach {
+                        CoachCallView(coach: coach)
+                    }
                 }
-            }
         }
     }
     
     private func startCall() {
+        print("🚀 START CALL - remainingSeconds: \(quotaViewModel.remainingSeconds), canStartCall: \(appSession.canStartCall)")
         showingCallView = true
     }
 }
@@ -131,14 +133,12 @@ struct CoachCard: View {
     var body: some View {
         VStack(spacing: 20) {
             // Coach Photo
-            Image(systemName: "person.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.accentColor)
-                .frame(width: 120, height: 120)
-                .background(
-                    Circle()
-                        .fill(Color(.systemGray5))
-                )
+            Image(coach.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200, height: 200)
+                .background(Circle().fill(Color(.systemGray6)))
+                .clipShape(Circle())
                 .overlay(
                     Circle()
                         .stroke(Color.accentColor, lineWidth: 4)

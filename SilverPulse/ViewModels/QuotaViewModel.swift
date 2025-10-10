@@ -25,6 +25,18 @@ class QuotaViewModel: ObservableObject {
         quotaService.fetchQuota()
     }
     
+    func startCallTimer() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.updateTimer()
+        }
+    }
+    
+    func stopCallTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     // MARK: - Private Methods
     
     private func setupObservers() {
@@ -40,16 +52,29 @@ class QuotaViewModel: ObservableObject {
         quotaService.$error
             .assign(to: \.error, on: self)
             .store(in: &cancellables)
+        
+        // Listen for call timer notifications
+        NotificationCenter.default.publisher(for: .callTimerStart)
+            .sink { [weak self] _ in
+                self?.startCallTimer()
+            }
+            .store(in: &cancellables)
+        
+        NotificationCenter.default.publisher(for: .callTimerStop)
+            .sink { [weak self] _ in
+                self?.stopCallTimer()
+            }
+            .store(in: &cancellables)
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            self?.updateTimer()
-        }
+        // Don't start timer automatically - only when call is active
+        // Timer will be controlled by QuotaService.isCallActive
     }
     
     private func updateTimer() {
-        if remainingSeconds > 0 {
+        // Only update if call is currently active
+        if quotaService.isCallCurrentlyActive() && remainingSeconds > 0 {
             remainingSeconds -= 1
         }
     }

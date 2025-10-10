@@ -12,6 +12,7 @@ class QuotaService: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private var heartbeatTimer: Timer?
     private var currentSession: CallSession?
+    private var isCallActive = false
     
     private init() {}
     
@@ -66,7 +67,7 @@ class QuotaService: ObservableObject {
                 remainingSeconds: response.remainingSeconds
             )
             self.currentSession = session
-            self.startHeartbeat()
+            // Don't start heartbeat automatically - wait for setCallActive(true)
             return session
         }
         .eraseToAnyPublisher()
@@ -98,6 +99,7 @@ class QuotaService: ObservableObject {
         )
         .map { response in
             self.currentSession = nil
+            self.isCallActive = false
             self.userQuota?.remainingSeconds = response.remainingSeconds
             return response
         }
@@ -109,9 +111,28 @@ class QuotaService: ObservableObject {
         currentSession?.remainingSeconds = seconds
     }
     
+    func setCallActive(_ active: Bool) {
+        isCallActive = active
+        if active {
+            startHeartbeat()
+            // Notify that call timer should start
+            NotificationCenter.default.post(name: .callTimerStart, object: nil)
+        } else {
+            stopHeartbeat()
+            // Notify that call timer should stop
+            NotificationCenter.default.post(name: .callTimerStop, object: nil)
+        }
+    }
+    
+    func isCallCurrentlyActive() -> Bool {
+        return isCallActive
+    }
+    
     // MARK: - Private Methods
     
     private func startHeartbeat() {
+        // Only start if not already active and call is active
+        guard isCallActive, heartbeatTimer == nil else { return }
         heartbeatTimer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { [weak self] _ in
             self?.sendHeartbeat()
         }
@@ -123,7 +144,7 @@ class QuotaService: ObservableObject {
     }
     
     private func sendHeartbeat() {
-        guard let session = currentSession else { return }
+        guard let session = currentSession, isCallActive else { return }
         
         let elapsedSeconds = Int(Date().timeIntervalSince(session.startedAt))
         let request = HeartbeatRequest(
@@ -158,6 +179,7 @@ class QuotaService: ObservableObject {
     private func handleTimeUp() {
         stopHeartbeat()
         currentSession = nil
+        isCallActive = false
         
         // Post notification for UI to handle
         NotificationCenter.default.post(
@@ -171,5 +193,7 @@ class QuotaService: ObservableObject {
 
 extension Notification.Name {
     static let timeUp = Notification.Name("timeUp")
+    static let callTimerStart = Notification.Name("callTimerStart")
+    static let callTimerStop = Notification.Name("callTimerStop")
 }
 

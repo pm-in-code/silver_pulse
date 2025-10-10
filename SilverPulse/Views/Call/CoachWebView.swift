@@ -27,19 +27,20 @@ struct CoachWebView: View {
                     isTimeLow: quotaViewModel.isTimeLow
                 )
                 
-                // End Call Button
-                Button(action: { showingEndCallAlert = true }) {
-                    HStack {
-                        Image(systemName: "phone.down.fill")
-                        Text("END")
-                            .fontWeight(.semibold)
+                    // End Call Button
+                    Button(action: { showingEndCallAlert = true }) {
+                        HStack {
+                            Image(systemName: "phone.down.fill")
+                            Text("END")
+                                .fontWeight(.semibold)
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 12)
+                        .background(Color.red)
+                        .cornerRadius(20)
                     }
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 12)
-                    .background(Color.red)
-                    .cornerRadius(20)
-                }
+                    .buttonStyle(FeedbackButtonStyle(feedbackType: .heavy))
             }
             .padding(.top, 20)
             .padding(.horizontal, 24)
@@ -96,6 +97,9 @@ struct CoachWebView: View {
         requestMicrophonePermission()
         quotaViewModel.refreshQuota()
         
+        // Pause background music for call
+        BackgroundMusicService.shared.pauseForCall()
+        
         // Start call session
         QuotaService.shared.startCall(coachId: coach.id)
             .sink(
@@ -133,6 +137,10 @@ struct CoachWebView: View {
         stopBackgroundTimer()
         networkMonitor?.cancel()
         setKeepScreenAwake(false)
+        
+        // Resume background music after call
+        BackgroundMusicService.shared.resumeAfterCall()
+        
         endCall()
     }
     

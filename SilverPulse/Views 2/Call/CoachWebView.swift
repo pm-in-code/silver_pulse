@@ -41,7 +41,7 @@ struct CoachWebView: View {
             .background(Color(.systemGray6))
             
             // WebView
-            WebViewRepresentable(
+            OldWebViewRepresentable(
                 url: buildWebViewURL(),
                 onNavigation: handleNavigation
             )
@@ -177,7 +177,7 @@ struct CoachWebView: View {
     @State private var cancellables = Set<AnyCancellable>()
 }
 
-struct WebViewRepresentable: UIViewRepresentable {
+struct OldWebViewRepresentable: UIViewRepresentable {
     let url: URL
     let onNavigation: (WKNavigation) -> Void
     
@@ -204,9 +204,9 @@ struct WebViewRepresentable: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {
-        let parent: WebViewRepresentable
+        let parent: OldWebViewRepresentable
         
-        init(_ parent: WebViewRepresentable) {
+        init(_ parent: OldWebViewRepresentable) {
             self.parent = parent
         }
         

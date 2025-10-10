@@ -11,20 +11,24 @@ struct MoodSelectionView: View {
     ]
     
     var body: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 24) {
             // Header
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
                 Text("How are you feeling?")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+                    .lineLimit(nil)
                 
                 Text("Select the mood that best describes you right now")
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 24)
+            .padding(.top, 16)
             
             // Mood Grid
             LazyVGrid(columns: columns, spacing: 16) {
@@ -61,23 +65,24 @@ struct MoodSelectionView: View {
             
             Spacer()
             
-            // Continue Button
-            Button(action: onNext) {
-                HStack {
-                    Text("Continue")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                    Image(systemName: "arrow.right")
+                // Continue Button
+                Button(action: onNext) {
+                    HStack {
+                        Text("Continue")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        Image(systemName: "arrow.right")
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .background(selectedMood != nil ? Color.accentColor : Color.gray)
+                    .cornerRadius(12)
                 }
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(selectedMood != nil ? Color.accentColor : Color.gray)
-                .cornerRadius(12)
-            }
-            .disabled(selectedMood == nil)
-            .padding(.horizontal, 24)
-            .padding(.bottom, 32)
+                .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
+                .disabled(selectedMood == nil)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 32)
         }
         .background(Color(.systemBackground))
     }
@@ -88,33 +93,33 @@ struct MoodCard: View {
     let isSelected: Bool
     let onTap: () -> Void
     
-    var body: some View {
-        Button(action: onTap) {
-            VStack(spacing: 12) {
-                Image(mood.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 130, height: 130)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                
-                Text(mood.title)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(isSelected ? .white : .primary)
+        var body: some View {
+            Button(action: onTap) {
+                VStack(spacing: 12) {
+                    Image(mood.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 130, height: 130)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                    
+                    Text(mood.title)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(isSelected ? .white : .primary)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(isSelected ? Color.accentColor : Color(.systemGray6))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
+                )
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(isSelected ? Color.accentColor : Color(.systemGray6))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
-            )
+            .buttonStyle(FeedbackButtonStyle(feedbackType: .selection))
         }
-        .buttonStyle(PlainButtonStyle())
-    }
     
 }
 

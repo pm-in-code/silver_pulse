@@ -25,6 +25,13 @@
 		0A44D4812E98264C009EFF52 /* QuotaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4662E98264C009EFF52 /* QuotaViewModel.swift */; };
 		0A44D4822E98264C009EFF52 /* MoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D46F2E98264C009EFF52 /* MoodSelectionView.swift */; };
 		0A44D4832E98264C009EFF52 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4602E98264C009EFF52 /* Analytics.swift */; };
+		0A44D4872E98F267009EFF52 /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4852E98F267009EFF52 /* LoadingScreenView.swift */; };
+		0A44D4892E98F2B7009EFF52 /* BackgroundMusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4882E98F2B7009EFF52 /* BackgroundMusicService.swift */; };
+		0A44D48B2E98F2CB009EFF52 /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D48A2E98F2CB009EFF52 /* HapticFeedbackService.swift */; };
+		0A44D48E2E98F2E5009EFF52 /* ButtonFeedbackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D48C2E98F2E5009EFF52 /* ButtonFeedbackModifier.swift */; };
+		0A44D4922E98F896009EFF52 /* CallUIOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D48F2E98F896009EFF52 /* CallUIOverlay.swift */; };
+		0A44D4932E98F896009EFF52 /* CoachWebViewOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4912E98F896009EFF52 /* CoachWebViewOnly.swift */; };
+		0A44D4942E98F896009EFF52 /* CoachCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4902E98F896009EFF52 /* CoachCallView.swift */; };
 		A1234567890ABCDEF001 /* SilverPulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF002 /* SilverPulseApp.swift */; };
 		A1234567890ABCDEF003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF004 /* ContentView.swift */; };
 		A1234567890ABCDEF005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF006 /* Assets.xcassets */; };
@@ -50,6 +57,13 @@
 		0A44D46E2E98264C009EFF52 /* MoodConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodConfirmationView.swift; sourceTree = "<group>"; };
 		0A44D46F2E98264C009EFF52 /* MoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionView.swift; sourceTree = "<group>"; };
 		0A44D4702E98264C009EFF52 /* OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowView.swift; sourceTree = "<group>"; };
+		0A44D4852E98F267009EFF52 /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
+		0A44D4882E98F2B7009EFF52 /* BackgroundMusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusicService.swift; sourceTree = "<group>"; };
+		0A44D48A2E98F2CB009EFF52 /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
+		0A44D48C2E98F2E5009EFF52 /* ButtonFeedbackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFeedbackModifier.swift; sourceTree = "<group>"; };
+		0A44D48F2E98F896009EFF52 /* CallUIOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUIOverlay.swift; sourceTree = "<group>"; };
+		0A44D4902E98F896009EFF52 /* CoachCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachCallView.swift; sourceTree = "<group>"; };
+		0A44D4912E98F896009EFF52 /* CoachWebViewOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachWebViewOnly.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF000 /* SilverPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1234567890ABCDEF002 /* SilverPulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilverPulseApp.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +151,29 @@
 			path = "Views 2";
 			sourceTree = "<group>";
 		};
+		0A44D4842E98F21A009EFF52 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0A44D4862E98F267009EFF52 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D4852E98F267009EFF52 /* LoadingScreenView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		0A44D48D2E98F2E5009EFF52 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A44D48C2E98F2E5009EFF52 /* ButtonFeedbackModifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A1234567890ABCDEF010 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +220,9 @@
 		A1234567890ABCDEF014 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A44D48D2E98F2E5009EFF52 /* Extensions */,
+				0A44D4862E98F267009EFF52 /* Launch */,
+				0A44D4842E98F21A009EFF52 /* New Group */,
 				A1234567890ABCDEF019 /* Onboarding */,
 				A1234567890ABCDEF020 /* Lobby */,
 				A1234567890ABCDEF021 /* Call */,
@@ -193,6 +233,8 @@
 		A1234567890ABCDEF015 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0A44D48A2E98F2CB009EFF52 /* HapticFeedbackService.swift */,
+				0A44D4882E98F2B7009EFF52 /* BackgroundMusicService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -237,6 +279,9 @@
 		A1234567890ABCDEF021 /* Call */ = {
 			isa = PBXGroup;
 			children = (
+				0A44D48F2E98F896009EFF52 /* CallUIOverlay.swift */,
+				0A44D4902E98F896009EFF52 /* CoachCallView.swift */,
+				0A44D4912E98F896009EFF52 /* CoachWebViewOnly.swift */,
 			);
 			path = Call;
 			sourceTree = "<group>";
@@ -316,7 +361,13 @@
 				0A44D4742E98264C009EFF52 /* UserQuota.swift in Sources */,
 				0A44D4752E98264C009EFF52 /* FinalConfirmationView.swift in Sources */,
 				0A44D4762E98264C009EFF52 /* CallSession.swift in Sources */,
+				0A44D4872E98F267009EFF52 /* LoadingScreenView.swift in Sources */,
+				0A44D48B2E98F2CB009EFF52 /* HapticFeedbackService.swift in Sources */,
+				0A44D48E2E98F2E5009EFF52 /* ButtonFeedbackModifier.swift in Sources */,
 				0A44D4772E98264C009EFF52 /* CoachSelectionView.swift in Sources */,
+				0A44D4922E98F896009EFF52 /* CallUIOverlay.swift in Sources */,
+				0A44D4932E98F896009EFF52 /* CoachWebViewOnly.swift in Sources */,
+				0A44D4942E98F896009EFF52 /* CoachCallView.swift in Sources */,
 				0A44D4782E98264C009EFF52 /* APIClient.swift in Sources */,
 				0A44D4792E98264C009EFF52 /* LobbyView.swift in Sources */,
 				0A44D47A2E98264C009EFF52 /* CoachWebView.swift in Sources */,
@@ -325,6 +376,7 @@
 				0A44D47D2E98264C009EFF52 /* KeychainService.swift in Sources */,
 				0A44D47E2E98264C009EFF52 /* Coach.swift in Sources */,
 				0A44D47F2E98264C009EFF52 /* OnboardingFlowView.swift in Sources */,
+				0A44D4892E98F2B7009EFF52 /* BackgroundMusicService.swift in Sources */,
 				0A44D4802E98264C009EFF52 /* QuotaService.swift in Sources */,
 				0A44D4812E98264C009EFF52 /* QuotaViewModel.swift in Sources */,
 				0A44D4822E98264C009EFF52 /* MoodSelectionView.swift in Sources */,

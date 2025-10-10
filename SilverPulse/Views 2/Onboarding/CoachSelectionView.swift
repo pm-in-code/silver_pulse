@@ -49,6 +49,7 @@ struct CoachSelectionView: View {
                         .background(selectedCoach != nil ? Color.accentColor : Color(.systemGray4))
                         .cornerRadius(12)
                 }
+                .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
                 .disabled(selectedCoach == nil)
                 .padding(.horizontal, 24)
                 .padding(.bottom, 32)
@@ -71,17 +72,21 @@ struct OnboardingCoachCard: View {
                     .aspectRatio(contentMode: .fit) // Используем .fit чтобы не обрезать изображение
                     .frame(width: 100, height: 100) // Увеличиваем размер изображения
                     .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(isSelected ? Color.white : Color.clear, lineWidth: 3)
+                    )
                 
                 // Coach Info
                 VStack(alignment: .leading, spacing: 4) {
                     Text(coach.name)
                         .font(.title3)
                         .fontWeight(.bold)
-                        .foregroundColor(.primary)
+                        .foregroundColor(isSelected ? .white : .primary)
                     
                     Text(coach.tagline)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
                 }
@@ -91,12 +96,16 @@ struct OnboardingCoachCard: View {
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color(.systemBackground))
+                    .fill(isSelected ? Color.accentColor : Color(.systemBackground))
                     .shadow(color: .black.opacity(0.06), radius: 2, x: 0, y: 1)
             )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
+            )
+            }
+            .buttonStyle(FeedbackButtonStyle(feedbackType: .selection))
         }
-        .buttonStyle(PlainButtonStyle())
-    }
     
 }
 

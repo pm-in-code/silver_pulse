@@ -86,7 +86,10 @@ class AppSession: ObservableObject {
         // Observe quota changes
         quotaService.$userQuota
             .compactMap { $0?.remainingSeconds }
-            .assign(to: \.remainingSeconds, on: self)
+            .sink { [weak self] seconds in
+                print("🔄 AppSession: remainingSeconds updated to \(seconds)")
+                self?.remainingSeconds = seconds
+            }
             .store(in: &cancellables)
         
         // Save remaining seconds when it changes

@@ -19,6 +19,7 @@ class QuotaService: ObservableObject {
     // MARK: - Public Methods
     
     func fetchQuota() {
+        print("📊 QuotaService: fetchQuota() called")
         isLoading = true
         error = nil
         
@@ -32,10 +33,12 @@ class QuotaService: ObservableObject {
             receiveCompletion: { [weak self] completion in
                 self?.isLoading = false
                 if case .failure(let error) = completion {
+                    print("❌ QuotaService: fetchQuota FAILED - \(error)")
                     self?.error = error
                 }
             },
             receiveValue: { [weak self] quota in
+                print("✅ QuotaService: fetchQuota SUCCESS - remainingSeconds: \(quota.remainingSeconds)")
                 self?.userQuota = quota
             }
         )
@@ -115,8 +118,12 @@ class QuotaService: ObservableObject {
         isCallActive = active
         if active {
             startHeartbeat()
+            // Notify that call timer should start
+            NotificationCenter.default.post(name: .callTimerStart, object: nil)
         } else {
             stopHeartbeat()
+            // Notify that call timer should stop
+            NotificationCenter.default.post(name: .callTimerStop, object: nil)
         }
     }
     
@@ -127,6 +134,8 @@ class QuotaService: ObservableObject {
     // MARK: - Private Methods
     
     private func startHeartbeat() {
+        // Only start if not already active and call is active
+        guard isCallActive, heartbeatTimer == nil else { return }
         heartbeatTimer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true) { [weak self] _ in
             self?.sendHeartbeat()
         }
@@ -186,4 +195,6 @@ class QuotaService: ObservableObject {
 
 extension Notification.Name {
     static let timeUp = Notification.Name("timeUp")
+    static let callTimerStart = Notification.Name("callTimerStart")
+    static let callTimerStop = Notification.Name("callTimerStop")
 }
