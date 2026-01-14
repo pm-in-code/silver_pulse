@@ -176,3 +176,4 @@ class LoadingScreenManager: ObservableObject {
 #Preview {
     LoadingScreenView()
 }
+

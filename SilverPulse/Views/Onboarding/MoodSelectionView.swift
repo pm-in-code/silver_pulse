@@ -5,6 +5,9 @@ struct MoodSelectionView: View {
     @Binding var dailyReminder: Bool
     let onNext: () -> Void
     
+    // Custom selection color (green #D5F20E)
+    private let selectionColor = Color(red: 0xD5 / 255.0, green: 0xF2 / 255.0, blue: 0x0E / 255.0)
+    
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -31,7 +34,8 @@ struct MoodSelectionView: View {
                 ForEach(Mood.allMoods) { mood in
                     MoodCard(
                         mood: mood,
-                        isSelected: selectedMood?.id == mood.id
+                        isSelected: selectedMood?.id == mood.id,
+                        selectionColor: selectionColor
                     ) {
                         selectedMood = mood
                     }
@@ -67,19 +71,21 @@ struct MoodSelectionView: View {
                     Text("Continue")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .foregroundColor(.black)
                     Image(systemName: "arrow.right")
+                        .foregroundColor(.black)
                 }
-                .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
-                .background(selectedMood != nil ? Color.accentColor : Color.gray)
+                .background(selectedMood != nil ? selectionColor : Color.gray)
                 .cornerRadius(12)
             }
             .disabled(selectedMood == nil)
             .padding(.horizontal, 24)
             .padding(.bottom, 32)
         }
-        .background(Color(.systemBackground))
+        // Swap background colors: screen gets light gray, tiles get white
+        .background(Color(.systemGray6))
     }
 }
 
@@ -87,31 +93,36 @@ struct MoodCard: View {
     let mood: Mood
     let isSelected: Bool
     let onTap: () -> Void
+    let selectionColor: Color
     
     var body: some View {
         Button(action: onTap) {
             VStack(spacing: 12) {
                 Image(mood.imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 60, height: 60)
-                    .clipShape(Circle())
+                    .scaledToFill()
+                    // Make image itself vertical with 3:4 aspect ratio
+                    .aspectRatio(3.0 / 4.0, contentMode: .fill)
+                    .clipped()
                 
                 Text(mood.title)
                     .font(.headline)
                     .fontWeight(.semibold)
-                    .foregroundColor(isSelected ? .white : .primary)
+                    .foregroundColor(isSelected ? .black : .primary)
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 20)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(isSelected ? Color.accentColor : Color(.systemGray6))
+                    // Swap colors: unselected tiles are white, selected use custom green
+                    .fill(isSelected ? selectionColor : Color(.systemBackground))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
+                    .stroke(isSelected ? selectionColor : Color.clear, lineWidth: 2)
             )
+            // Make the whole tile vertical rectangle with 3:4 aspect ratio
+            .aspectRatio(3.0 / 4.0, contentMode: .fit)
         }
         .buttonStyle(PlainButtonStyle())
     }

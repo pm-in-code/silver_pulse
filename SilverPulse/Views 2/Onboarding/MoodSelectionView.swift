@@ -5,13 +5,16 @@ struct MoodSelectionView: View {
     @Binding var dailyReminder: Bool
     let onNext: () -> Void
     
+    // Custom selection color (green #D5F20E)
+    private let selectionColor = Color(red: 0xD5 / 255.0, green: 0xF2 / 255.0, blue: 0x0E / 255.0)
+    
     private let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: 32),
+        GridItem(.flexible(), spacing: 32)
     ]
     
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 16) {
             // Header
             VStack(spacing: 12) {
                 Text("How are you feeling?")
@@ -28,39 +31,33 @@ struct MoodSelectionView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 24)
-            .padding(.top, 16)
             
             // Mood Grid
-            LazyVGrid(columns: columns, spacing: 16) {
+            LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(Mood.allMoods) { mood in
                     MoodCard(
                         mood: mood,
-                        isSelected: selectedMood?.id == mood.id
-                    ) {
-                        selectedMood = mood
-                    }
+                        isSelected: selectedMood?.id == mood.id,
+                        onTap: {
+                            selectedMood = mood
+                        },
+                        selectionColor: selectionColor
+                    )
                 }
             }
             .padding(.horizontal, 24)
             
-            // Daily Reminder Toggle
-            VStack(spacing: 16) {
-                HStack {
-                    Image(systemName: "bell.fill")
-                        .foregroundColor(.accentColor)
-                    Text("Remind me daily to stay active")
-                        .font(.body)
-                        .fontWeight(.medium)
-                    Spacer()
-                }
-                
+            // Daily Reminder Toggle - compact one-line layout
+            HStack(spacing: 12) {
+                Image(systemName: "bell.fill")
+                    .foregroundColor(.accentColor)
+                Text("Remind me daily to stay active")
+                    .font(.body)
+                    .fontWeight(.medium)
+                Spacer()
                 Toggle("", isOn: $dailyReminder)
                     .toggleStyle(SwitchToggleStyle(tint: .accentColor))
             }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 16)
-            .background(Color(.systemGray6))
-            .cornerRadius(12)
             .padding(.horizontal, 24)
             
             Spacer()
@@ -71,20 +68,24 @@ struct MoodSelectionView: View {
                         Text("Continue")
                             .font(.headline)
                             .fontWeight(.semibold)
+                            .foregroundColor(.black)
                         Image(systemName: "arrow.right")
+                            .foregroundColor(.black)
                     }
-                    .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 16)
-                    .background(selectedMood != nil ? Color.accentColor : Color.gray)
+                    .background(selectedMood != nil ? selectionColor : Color.gray)
                     .cornerRadius(12)
                 }
                 .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
                 .disabled(selectedMood == nil)
                 .padding(.horizontal, 24)
-                .padding(.bottom, 32)
         }
-        .background(Color(.systemBackground))
+        // Внешние отступы относительно краёв экрана
+        .padding(.top, 72)
+        .padding(.bottom, 72)
+        // Swap background colors: screen gets light gray, tiles get white
+        .background(Color(.systemGray6))
     }
 }
 
@@ -92,31 +93,38 @@ struct MoodCard: View {
     let mood: Mood
     let isSelected: Bool
     let onTap: () -> Void
+    let selectionColor: Color
     
         var body: some View {
             Button(action: onTap) {
-                VStack(spacing: 12) {
+                VStack(spacing: 10) {
                     Image(mood.imageName)
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 130, height: 130)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        // Make image vertical 3:4
+                        .scaledToFill()
+                        .aspectRatio(3.0 / 4.0, contentMode: .fill)
+                        .clipped()
                     
                     Text(mood.title)
                         .font(.headline)
                         .fontWeight(.semibold)
-                        .foregroundColor(isSelected ? .white : .primary)
+                        .foregroundColor(isSelected ? .black : .primary)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
+                .padding(.vertical, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(isSelected ? Color.accentColor : Color(.systemGray6))
+                        // Swap colors: unselected tiles are white, selected use custom green
+                        .fill(isSelected ? selectionColor : Color(.systemBackground))
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
+                        .stroke(isSelected ? selectionColor : Color.clear, lineWidth: 2)
                 )
+                // Clip entire tile to rounded rectangle so image corners are masked
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                // Make the whole tile vertical rectangle with slightly reduced height
+                .aspectRatio(3.0 / 3.8, contentMode: .fit)
             }
             .buttonStyle(FeedbackButtonStyle(feedbackType: .selection))
         }

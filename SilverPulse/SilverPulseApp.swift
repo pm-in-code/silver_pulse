@@ -25,6 +25,11 @@ struct SilverPulseApp: App {
                         .environmentObject(backgroundMusic)
                         .onAppear {
                             setupAudioSession()
+                            // Start music if not already playing
+                            if !backgroundMusic.isPlaying {
+                                NSLog("🎵 ContentView appeared - starting music")
+                                backgroundMusic.play()
+                            }
                         }
                 }
             }
@@ -33,10 +38,12 @@ struct SilverPulseApp: App {
     
     private func setupAudioSession() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default)
+            // Set initial audio session for background music
+            try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
+            print("✅ Initial audio session configured for background music")
         } catch {
-            print("Failed to setup audio session: \(error)")
+            print("❌ Failed to setup initial audio session: \(error)")
         }
     }
 }

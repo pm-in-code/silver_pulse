@@ -31,6 +31,7 @@ struct CoachWebViewOnly: View {
     }
     
     private func setupCall() {
+        setupAudioSessionForCall()
         setupNetworkMonitoring()
         requestMicrophonePermission()
         
@@ -62,6 +63,9 @@ struct CoachWebViewOnly: View {
         // Stop call activity before ending call
         QuotaService.shared.setCallActive(false)
         
+        // Restore audio session for background music
+        restoreAudioSessionAfterCall()
+        
         // Resume background music after call
         BackgroundMusicService.shared.resumeAfterCall()
         
@@ -88,12 +92,22 @@ struct CoachWebViewOnly: View {
     private func requestMicrophonePermission() {
         AVAudioSession.sharedInstance().requestRecordPermission { granted in
             Analytics.shared.trackMicrophonePermission(granted)
-            if !granted {
+            if granted {
+                print("✅ Microphone permission granted for WebView call")
+            } else {
+                print("❌ Microphone permission denied for WebView call")
                 DispatchQueue.main.async {
                     // Show alert to open settings
+                    self.showMicrophonePermissionAlert()
                 }
             }
         }
+    }
+    
+    private func showMicrophonePermissionAlert() {
+        // This would show an alert to go to settings
+        // For now, just log the issue
+        print("⚠️ Microphone permission needed for WebView call")
     }
     
     private func buildWebViewURL() -> URL {
@@ -118,6 +132,38 @@ struct CoachWebViewOnly: View {
     private func setKeepScreenAwake(_ awake: Bool) {
         shouldKeepScreenAwake = awake
         UIApplication.shared.isIdleTimerDisabled = awake
+    }
+    
+    private func setupAudioSessionForCall() {
+        do {
+            // Configure audio session specifically for WebView calls
+            try AVAudioSession.sharedInstance().setCategory(
+                .playAndRecord,
+                mode: .videoChat,
+                options: [.defaultToSpeaker, .allowBluetooth, .allowBluetoothA2DP]
+            )
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            print("✅ Audio session configured for WebView call")
+        } catch {
+            print("❌ Failed to setup audio session for call: \(error)")
+        }
+    }
+    
+    private func restoreAudioSessionAfterCall() {
+        do {
+            // Restore audio session for background music
+            try AVAudioSession.sharedInstance().setCategory(
+                .ambient,
+                mode: .default,
+                options: [.mixWithOthers]
+            )
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            print("✅ Audio session restored for background music")
+        } catch {
+            print("❌ Failed to restore audio session: \(error)")
+        }
     }
     
     @State private var cancellables = Set<AnyCancellable>()

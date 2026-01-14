@@ -11,8 +11,10 @@ class BackgroundMusicService: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     private init() {
+        print("🎵 Initializing BackgroundMusicService...")
         setupAudioSession()
         setupMusic()
+        print("🎵 BackgroundMusicService initialized")
     }
     
     private func setupAudioSession() {
@@ -25,27 +27,86 @@ class BackgroundMusicService: ObservableObject {
     }
     
     private func setupMusic() {
+        print("🎵 Setting up background music...")
+        
+        // Try to use a simple system sound first for testing
+        if let soundURL = Bundle.main.url(forResource: "test_sound", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                print("✅ Using bundled sound file")
+            } catch {
+                print("❌ Failed to load bundled sound: \(error)")
+                setupGeneratedMusic()
+            }
+        } else {
+            print("📝 No bundled sound found, using generated music")
+            setupGeneratedMusic()
+        }
+        
+        if let player = audioPlayer {
+            player.numberOfLoops = -1 // Loop indefinitely
+            player.volume = 0.2 // Low volume for background
+            player.prepareToPlay()
+            print("✅ Background music audio player configured successfully")
+        }
+    }
+    
+    private func setupGeneratedMusic() {
         // Create a calm, relaxing ambient sound
         let musicData = createAmbientMusic()
+        NSLog("🎵 Created ambient music data: %lu bytes", musicData.count)
+        print("🎵 Created ambient music data: \(musicData.count) bytes")
         
         do {
             audioPlayer = try AVAudioPlayer(data: musicData)
-            audioPlayer?.numberOfLoops = -1 // Loop indefinitely
-            audioPlayer?.volume = 0.2 // Low volume for background
-            audioPlayer?.prepareToPlay()
+            if let player = audioPlayer {
+                NSLog("✅ Generated music audio player created - duration: %f seconds", player.duration)
+                print("✅ Generated music audio player created - duration: \(player.duration) seconds")
+            }
         } catch {
-            print("Failed to setup background music: \(error)")
+            NSLog("❌ Failed to setup generated background music: %@", error.localizedDescription)
+            print("❌ Failed to setup generated background music: \(error)")
         }
     }
     
     func play() {
-        guard !isPlaying else { return }
+        NSLog("🎵 play() called - isPlaying: %d", isPlaying)
         
-        audioPlayer?.volume = isMuted ? 0.0 : 0.2
-        audioPlayer?.play()
+        guard !isPlaying else { 
+            NSLog("🎵 Background music already playing, skipping")
+            print("🎵 Background music already playing, skipping")
+            return 
+        }
+        
+        guard let player = audioPlayer else {
+            NSLog("❌ No audio player available for background music")
+            print("❌ No audio player available for background music")
+            return
+        }
+        
+        // Check audio session
+        let session = AVAudioSession.sharedInstance()
+        NSLog("🎵 Audio session category: %@", session.category.rawValue)
+        NSLog("🎵 Audio session mode: %@", session.mode.rawValue)
+        print("🎵 Audio session category: \(session.category.rawValue)")
+        print("🎵 Audio session mode: \(session.mode.rawValue)")
+        print("🎵 Audio session is active: \(session.isOtherAudioPlaying)")
+        
+        player.volume = isMuted ? 0.0 : 0.2
+        NSLog("🎵 Attempting to play with volume: %f", player.volume)
+        print("🎵 Attempting to play with volume: \(player.volume)")
+        
+        let success = player.play()
         isPlaying = true
         
-        print("Background music started")
+        if success {
+            NSLog("✅ Background music started successfully")
+            print("✅ Background music started successfully")
+        } else {
+            NSLog("❌ Failed to start background music - play() returned false")
+            print("❌ Failed to start background music - play() returned false")
+            isPlaying = false
+        }
     }
     
     func pause() {
@@ -74,47 +135,64 @@ class BackgroundMusicService: ObservableObject {
     // MARK: - Music Generation
     
     private func createAmbientMusic() -> Data {
+        print("🎵 Creating peaceful ambient soundscape...")
         let sampleRate: Double = 44100
-        let duration: Double = 30.0 // 30 seconds loop
+        let duration: Double = 20.0 // 20 seconds loop
         let samples = Int(sampleRate * duration)
         var audioData = Data()
+        audioData.reserveCapacity(samples * 2)
         
         for i in 0..<samples {
             let time = Double(i) / sampleRate
-            
-            // Create multiple layers of ambient sounds
             var amplitude: Double = 0
             
-            // Layer 1: Deep bass tone (very low frequency)
-            let bassFreq: Double = 55 // A1
-            amplitude += sin(2.0 * .pi * bassFreq * time) * 0.1
+            // Deep sub-bass drone (creates warm foundation)
+            amplitude += sin(2.0 * .pi * 55.0 * time) * 0.08  // A1
             
-            // Layer 2: Soft pad sound (mid frequencies)
-            let padFreq: Double = 220 // A3
-            amplitude += sin(2.0 * .pi * padFreq * time) * 0.05
+            // Bass harmony (gentle movement)
+            let bassModulation = sin(2.0 * .pi * 0.03 * time) // Very slow 0.03 Hz
+            amplitude += sin(2.0 * .pi * 110.0 * time) * (0.10 + 0.02 * bassModulation)  // A2
             
-            // Layer 3: High frequency sparkle (very quiet)
-            let sparkleFreq: Double = 880 // A5
-            amplitude += sin(2.0 * .pi * sparkleFreq * time) * 0.02
+            // Mid-range pad (creates richness)
+            amplitude += sin(2.0 * .pi * 220.0 * time) * 0.06   // A3
+            amplitude += sin(2.0 * .pi * 261.63 * time) * 0.05  // C4
+            amplitude += sin(2.0 * .pi * 329.63 * time) * 0.04  // E4
             
-            // Layer 4: Gentle harmonics
-            let harmonicFreq: Double = 330 // E4
-            amplitude += sin(2.0 * .pi * harmonicFreq * time) * 0.03
+            // High frequencies (air and space)
+            let shimmer = sin(2.0 * .pi * 0.07 * time) // Slow shimmer
+            amplitude += sin(2.0 * .pi * 440.0 * time) * (0.02 + 0.01 * shimmer)   // A4
+            amplitude += sin(2.0 * .pi * 523.25 * time) * (0.015 + 0.005 * shimmer) // C5
             
-            // Add gentle envelope to prevent clicks
-            let envelope = 0.5 + 0.5 * sin(2.0 * .pi * time * 0.1) // Very slow modulation
+            // Very subtle high sparkle
+            let twinkle = abs(sin(2.0 * .pi * 0.13 * time)) // Gentle twinkling
+            amplitude += sin(2.0 * .pi * 880.0 * time) * 0.008 * twinkle  // A5
             
-            // Apply gentle filtering and reverb-like effect
-            let filteredAmplitude = amplitude * envelope * 0.3
+            // Gentle global LFO for breathing effect
+            let breathe = 0.75 + 0.25 * sin(2.0 * .pi * 0.05 * time)
+            amplitude *= breathe
             
-            let sample = Int16(filteredAmplitude * 16000)
+            // Smooth crossfade at loop points
+            let fadeTime: Double = 1.0
+            var envelope: Double = 1.0
+            if time < fadeTime {
+                envelope = 0.5 * (1.0 - cos(.pi * time / fadeTime))
+            } else if time > duration - fadeTime {
+                envelope = 0.5 * (1.0 + cos(.pi * (time - (duration - fadeTime)) / fadeTime))
+            }
+            amplitude *= envelope
+            
+            // Comfortable volume
+            let sample = Int16(amplitude * 6000)
             audioData.append(withUnsafeBytes(of: sample.littleEndian) { Data($0) })
         }
         
-        return createWAVData(from: audioData, sampleRate: sampleRate)
+        let wavData = createWAVData(from: audioData, sampleRate: sampleRate)
+        print("🎵 Created ambient soundscape: \(wavData.count) bytes (\(duration)s loop)")
+        return wavData
     }
     
     private func createWAVData(from audioData: Data, sampleRate: Double) -> Data {
+        print("🎵 Creating WAV data from \(audioData.count) audio bytes...")
         var wavData = Data()
         
         // WAV header
@@ -133,6 +211,7 @@ class BackgroundMusicService: ObservableObject {
         wavData.append(withUnsafeBytes(of: UInt32(audioData.count).littleEndian) { Data($0) })
         wavData.append(audioData)
         
+        print("🎵 WAV data created: \(wavData.count) total bytes")
         return wavData
     }
 }
@@ -141,8 +220,12 @@ class BackgroundMusicService: ObservableObject {
 
 extension BackgroundMusicService {
     func startMusicOnOnboarding() {
+        NSLog("🎵 Starting music on onboarding...")
+        print("🎵 Starting music on onboarding...")
         // Start music when user reaches onboarding
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            NSLog("🎵 Attempting to play background music...")
+            print("🎵 Attempting to play background music...")
             self.play()
         }
     }
@@ -150,12 +233,18 @@ extension BackgroundMusicService {
     func pauseForCall() {
         // Pause music when call starts
         pause()
+        print("Background music paused for call")
     }
     
     func resumeAfterCall() {
+        // Restore audio session for background music
+        setupAudioSession()
+        
         // Resume music when call ends
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.play()
         }
+        
+        print("Background music will resume after call")
     }
 }
