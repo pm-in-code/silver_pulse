@@ -32,6 +32,12 @@
 		0A44D4922E98F896009EFF52 /* CallUIOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D48F2E98F896009EFF52 /* CallUIOverlay.swift */; };
 		0A44D4932E98F896009EFF52 /* CoachWebViewOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4912E98F896009EFF52 /* CoachWebViewOnly.swift */; };
 		0A44D4942E98F896009EFF52 /* CoachCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44D4902E98F896009EFF52 /* CoachCallView.swift */; };
+		B1A0F1010000000000000001 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F0010000000000000001 /* AuthView.swift */; };
+		B1A0F1010000000000000002 /* VideoOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F0010000000000000002 /* VideoOnboardingView.swift */; };
+		B1A0F1010000000000000003 /* ImageOnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F0010000000000000003 /* ImageOnboardingViews.swift */; };
+		B1A0F1010000000000000004 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F0010000000000000004 /* StoreView.swift */; };
+		B1A0F1010000000000000005 /* PurchaseSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F0010000000000000005 /* PurchaseSuccessView.swift */; };
+		B1A0F1010000000000000006 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F0010000000000000006 /* Colors.swift */; };
 		A1234567890ABCDEF001 /* SilverPulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF002 /* SilverPulseApp.swift */; };
 		A1234567890ABCDEF003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF004 /* ContentView.swift */; };
 		A1234567890ABCDEF005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF006 /* Assets.xcassets */; };
@@ -64,6 +70,12 @@
 		0A44D48F2E98F896009EFF52 /* CallUIOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUIOverlay.swift; sourceTree = "<group>"; };
 		0A44D4902E98F896009EFF52 /* CoachCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachCallView.swift; sourceTree = "<group>"; };
 		0A44D4912E98F896009EFF52 /* CoachWebViewOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachWebViewOnly.swift; sourceTree = "<group>"; };
+		B1A0F0010000000000000001 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		B1A0F0010000000000000002 /* VideoOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOnboardingView.swift; sourceTree = "<group>"; };
+		B1A0F0010000000000000003 /* ImageOnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOnboardingViews.swift; sourceTree = "<group>"; };
+		B1A0F0010000000000000004 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		B1A0F0010000000000000005 /* PurchaseSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSuccessView.swift; sourceTree = "<group>"; };
+		B1A0F0010000000000000006 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF000 /* SilverPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1234567890ABCDEF002 /* SilverPulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilverPulseApp.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,11 +144,16 @@
 		0A44D4712E98264C009EFF52 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B1A0F0010000000000000001 /* AuthView.swift */,
 				0A44D46C2E98264C009EFF52 /* CoachSelectionView.swift */,
 				0A44D46D2E98264C009EFF52 /* FinalConfirmationView.swift */,
+				B1A0F0010000000000000003 /* ImageOnboardingViews.swift */,
 				0A44D46E2E98264C009EFF52 /* MoodConfirmationView.swift */,
 				0A44D46F2E98264C009EFF52 /* MoodSelectionView.swift */,
 				0A44D4702E98264C009EFF52 /* OnboardingFlowView.swift */,
+				B1A0F0010000000000000005 /* PurchaseSuccessView.swift */,
+				B1A0F0010000000000000004 /* StoreView.swift */,
+				B1A0F0010000000000000002 /* VideoOnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -185,6 +202,7 @@
 		A1234567890ABCDEF011 /* SilverPulse */ = {
 			isa = PBXGroup;
 			children = (
+				B1A0F0010000000000000006 /* Colors.swift */,
 				0A44D45F2E98264C009EFF52 /* Models 2 */,
 				0A44D4652E98264C009EFF52 /* Services 2 */,
 				0A44D4672E98264C009EFF52 /* ViewModels 2 */,
@@ -364,6 +382,7 @@
 				0A44D4872E98F267009EFF52 /* LoadingScreenView.swift in Sources */,
 				0A44D48B2E98F2CB009EFF52 /* HapticFeedbackService.swift in Sources */,
 				0A44D48E2E98F2E5009EFF52 /* ButtonFeedbackModifier.swift in Sources */,
+				B1A0F1010000000000000001 /* AuthView.swift in Sources */,
 				0A44D4772E98264C009EFF52 /* CoachSelectionView.swift in Sources */,
 				0A44D4922E98F896009EFF52 /* CallUIOverlay.swift in Sources */,
 				0A44D4932E98F896009EFF52 /* CoachWebViewOnly.swift in Sources */,
@@ -375,12 +394,17 @@
 				0A44D47C2E98264C009EFF52 /* MoodConfirmationView.swift in Sources */,
 				0A44D47D2E98264C009EFF52 /* KeychainService.swift in Sources */,
 				0A44D47E2E98264C009EFF52 /* Coach.swift in Sources */,
+				B1A0F1010000000000000006 /* Colors.swift in Sources */,
+				B1A0F1010000000000000003 /* ImageOnboardingViews.swift in Sources */,
 				0A44D47F2E98264C009EFF52 /* OnboardingFlowView.swift in Sources */,
+				B1A0F1010000000000000005 /* PurchaseSuccessView.swift in Sources */,
 				0A44D4892E98F2B7009EFF52 /* BackgroundMusicService.swift in Sources */,
 				0A44D4802E98264C009EFF52 /* QuotaService.swift in Sources */,
 				0A44D4812E98264C009EFF52 /* QuotaViewModel.swift in Sources */,
 				0A44D4822E98264C009EFF52 /* MoodSelectionView.swift in Sources */,
+				B1A0F1010000000000000004 /* StoreView.swift in Sources */,
 				0A44D4832E98264C009EFF52 /* Analytics.swift in Sources */,
+				B1A0F1010000000000000002 /* VideoOnboardingView.swift in Sources */,
 				A1234567890ABCDEF003 /* ContentView.swift in Sources */,
 				A1234567890ABCDEF001 /* SilverPulseApp.swift in Sources */,
 			);

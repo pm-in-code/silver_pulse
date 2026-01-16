@@ -5,63 +5,50 @@ struct MoodConfirmationView: View {
     let onNext: () -> Void
     
     var body: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 24) {
             Spacer()
             
-            // Mood Icon
             if let mood = selectedMood {
-                Image(mood.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 130, height: 130)
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(Color.accentColor, lineWidth: 4)
-                    )
+                VStack(spacing: 12) {
+                    Image(mood.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 160, height: 160)
+                        .clipped()
+                        .cornerRadius(16)
+                    
+                    Text(mood.title)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                }
+                .padding(16)
+                .background(
+                    RoundedRectangle(cornerRadius: 18)
+                        .fill(Color.flowSoftBlue)
+                )
             }
             
-            // Confirmation Message
-            VStack(spacing: 16) {
-                Text("I understand you're feeling")
-                    .font(.title2)
-                    .foregroundColor(.secondary)
-                
-                if let mood = selectedMood {
-                    Text(mood.title)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.accentColor)
-                }
-                
-                Text("That's completely okay. We're here to help you feel better.")
+            if let mood = selectedMood {
+                Text(mood.message)
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 24)
+                    .padding(.horizontal, 32)
             }
             
             Spacer()
-            
-                // Continue Button
-                Button(action: onNext) {
-                    HStack {
-                        Text("Let's find your coach")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                        Image(systemName: "arrow.right")
-                    }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(Color.accentColor)
-                    .cornerRadius(12)
-                }
-                .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
-                .padding(.horizontal, 24)
-                .padding(.bottom, 32)
         }
-        .background(Color(.systemBackground))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.flowLavender)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                onNext()
+            }
+        }
+        .onTapGesture {
+            onNext()
+        }
     }
 }
 

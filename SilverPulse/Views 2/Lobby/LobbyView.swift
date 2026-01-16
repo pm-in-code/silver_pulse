@@ -8,50 +8,59 @@ struct LobbyView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 24) {
-                // Header with Timer
-                VStack(spacing: 16) {
-                    Text("Silver Pulse")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                    
-                    // Timer Badge
-                    TimerBadge(
-                        remainingSeconds: quotaViewModel.remainingSeconds,
-                        isTimeLow: quotaViewModel.isTimeLow
-                    )
-                }
-                .padding(.top, 20)
+            VStack(spacing: 20) {
+                Text("Plan balance: \(formattedTime)")
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(Color.flowSoftBlue)
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    .padding(.top, 24)
                 
-                // Coach Card
+                Text("Your companion is waiting.\nStart anytime")
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.primary)
+                
                 if let coach = appSession.selectedCoach {
-                    CoachCard(coach: coach)
-                        .padding(.horizontal, 24)
+                    VStack(spacing: 12) {
+                        Image(coach.imageName)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 180, height: 180)
+                            .clipped()
+                            .cornerRadius(18)
+                        
+                        Text(coach.name)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                    }
+                    .padding(16)
+                    .background(Color.white)
+                    .cornerRadius(20)
                 }
                 
                 Spacer()
                 
-                    // Call Button
-                    Button(action: startCall) {
-                        HStack {
-                            Image(systemName: "phone.fill")
-                            Text("CALL")
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                        }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(appSession.canStartCall ? Color.green : Color.gray)
-                        .cornerRadius(12)
+                Button(action: startCall) {
+                    HStack(spacing: 8) {
+                        Text("TALK")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        Image(systemName: "phone.fill")
                     }
-                    .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
-                    .disabled(!appSession.canStartCall)
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 32)
+                    .foregroundColor(.black)
+                    .frame(width: 140, height: 44)
+                    .background(appSession.canStartCall ? Color.flowLime : Color.gray)
+                    .cornerRadius(22)
+                }
+                .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
+                .disabled(!appSession.canStartCall)
+                .padding(.bottom, 32)
             }
-            .background(Color(.systemGray6))
+            .background(Color.flowLavender)
             .navigationBarHidden(true)
             .onAppear {
                 quotaViewModel.refreshQuota()
@@ -78,91 +87,11 @@ struct LobbyView: View {
         print("🚀 START CALL - remainingSeconds: \(quotaViewModel.remainingSeconds), canStartCall: \(appSession.canStartCall)")
         showingCallView = true
     }
-}
-
-struct TimerBadge: View {
-    let remainingSeconds: Int
-    let isTimeLow: Bool
-    
-    @State private var isAnimating = false
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "clock.fill")
-            Text(formattedTime)
-                .fontWeight(.semibold)
-        }
-        .font(.body)
-        .foregroundColor(.white)
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .background(
-            Capsule()
-                .fill(isTimeLow ? Color.red : Color.accentColor)
-        )
-        .scaleEffect(isTimeLow && isAnimating ? 1.1 : 1.0)
-        .animation(
-            isTimeLow ? .easeInOut(duration: 1.0).repeatForever(autoreverses: true) : .default,
-            value: isAnimating
-        )
-        .onAppear {
-            if isTimeLow {
-                isAnimating = true
-            }
-        }
-        .onChange(of: isTimeLow) {
-            if isTimeLow {
-                isAnimating = true
-            } else {
-                isAnimating = false
-            }
-        }
-    }
-    
     private var formattedTime: String {
-        let hours = remainingSeconds / 3600
-        let minutes = (remainingSeconds % 3600) / 60
-        let seconds = remainingSeconds % 60
+        let hours = quotaViewModel.remainingSeconds / 3600
+        let minutes = (quotaViewModel.remainingSeconds % 3600) / 60
+        let seconds = quotaViewModel.remainingSeconds % 60
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    }
-}
-
-struct CoachCard: View {
-    let coach: Coach
-    
-    var body: some View {
-        VStack(spacing: 20) {
-            // Coach Photo
-            Image(coach.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
-                .background(Circle().fill(Color(.systemGray6)))
-                .clipShape(Circle())
-                .overlay(
-                    Circle()
-                        .stroke(Color.accentColor, lineWidth: 4)
-                )
-            
-            // Coach Info
-            VStack(spacing: 8) {
-                Text(coach.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                
-                Text(coach.tagline)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-            }
-        }
-        .padding(24)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color(.systemBackground))
-                .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
-        )
     }
 }
 

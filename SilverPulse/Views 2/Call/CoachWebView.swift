@@ -177,6 +177,49 @@ struct CoachWebView: View {
     @State private var cancellables = Set<AnyCancellable>()
 }
 
+private struct TimerBadge: View {
+    let remainingSeconds: Int
+    let isTimeLow: Bool
+    
+    @State private var isAnimating = false
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "clock.fill")
+            Text(formattedTime)
+                .fontWeight(.semibold)
+        }
+        .font(.body)
+        .foregroundColor(.white)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(
+            Capsule()
+                .fill(isTimeLow ? Color.red : Color.flowSoftBlue)
+        )
+        .scaleEffect(isTimeLow && isAnimating ? 1.1 : 1.0)
+        .animation(
+            isTimeLow ? .easeInOut(duration: 1.0).repeatForever(autoreverses: true) : .default,
+            value: isAnimating
+        )
+        .onAppear {
+            if isTimeLow {
+                isAnimating = true
+            }
+        }
+        .onChange(of: isTimeLow) {
+            isAnimating = isTimeLow
+        }
+    }
+    
+    private var formattedTime: String {
+        let hours = remainingSeconds / 3600
+        let minutes = (remainingSeconds % 3600) / 60
+        let seconds = remainingSeconds % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+}
+
 struct OldWebViewRepresentable: UIViewRepresentable {
     let url: URL
     let onNavigation: (WKNavigation) -> Void

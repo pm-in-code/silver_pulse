@@ -6,7 +6,6 @@ struct OnboardingFlowView: View {
     @State private var selectedMood: Mood?
     @State private var selectedCoach: Coach?
     @State private var dailyReminder = false
-    @State private var userName = ""
     
     @EnvironmentObject var appSession: AppSession
     
@@ -15,27 +14,54 @@ struct OnboardingFlowView: View {
             Group {
                 switch currentStep {
                 case 0:
+                    AuthView(
+                        onContinue: { nextStep() }
+                    )
+                case 1:
+                    VideoOnboardingView(
+                        onNext: { nextStep() }
+                    )
+                case 2:
+                    ImageOnboardingIntroView(
+                        onNext: { nextStep() }
+                    )
+                case 3:
+                    ImageOnboardingCoachListView(
+                        selectedCoach: $selectedCoach,
+                        onNext: { nextStep() }
+                    )
+                case 4:
+                    ImageOnboardingReadyView(
+                        onNext: { nextStep() }
+                    )
+                case 5:
                     MoodSelectionView(
                         selectedMood: $selectedMood,
                         dailyReminder: $dailyReminder,
                         onNext: { nextStep() }
                     )
-                case 1:
+                case 6:
                     MoodConfirmationView(
                         selectedMood: selectedMood,
                         onNext: { nextStep() }
                     )
-                case 2:
+                case 7:
                     CoachSelectionView(
                         selectedCoach: $selectedCoach,
                         onNext: { nextStep() }
                     )
-                case 3:
+                case 8:
                     FinalConfirmationView(
-                        selectedMood: selectedMood,
                         selectedCoach: selectedCoach,
-                        userName: $userName,
-                        onComplete: { completeOnboarding() }
+                        onComplete: { nextStep() }
+                    )
+                case 9:
+                    StoreView(
+                        onPurchase: { nextStep() }
+                    )
+                case 10:
+                    PurchaseSuccessView(
+                        onStart: { completeOnboarding() }
                     )
                 default:
                     EmptyView()

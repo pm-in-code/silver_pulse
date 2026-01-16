@@ -5,23 +5,19 @@ struct CoachSelectionView: View {
     let onNext: () -> Void
     
     var body: some View {
-        VStack(spacing: 32) {
-                // Header
-                VStack(spacing: 6) {
-                    Text("Choose Your Companion")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.primary)
-                        .lineLimit(1)
-                    
-                    Text("You can change anytime")
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
+        VStack(spacing: 24) {
+            // Header
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Choose Your\nCompanion")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                Text("You can change anytime")
+                    .font(.system(size: 14))
+                    .foregroundColor(.secondary)
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 24)
             
             // Coach List
             ScrollView {
@@ -38,23 +34,27 @@ struct CoachSelectionView: View {
                 .padding(.horizontal, 24)
             }
             
-                // Continue Button
-                Button(action: onNext) {
-                    Text("LET'S TALK")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(selectedCoach != nil ? Color.accentColor : Color(.systemGray4))
-                        .cornerRadius(12)
-                }
-                .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
-                .disabled(selectedCoach == nil)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 32)
+            // Continue Button
+            Button(action: onNext) {
+                Text("LET'S TALK")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(selectedCoach != nil ? Color.flowSoftBlue : Color(.systemGray4))
+                    .cornerRadius(24)
+            }
+            .buttonStyle(FeedbackButtonStyle(feedbackType: .success))
+            .disabled(selectedCoach == nil)
+            .padding(.horizontal, 40)
+            
+            Text("Pick who feels right. We'll take it slow")
+                .font(.footnote)
+                .foregroundColor(Color.flowSoftBlue)
+                .padding(.bottom, 20)
         }
-        .background(Color(.systemBackground))
+        .background(Color.flowLavender)
     }
     
 }
@@ -70,24 +70,21 @@ struct OnboardingCoachCard: View {
                 // Coach Photo
                 Image(coach.imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fit) // Используем .fit чтобы не обрезать изображение
-                    .frame(width: 100, height: 100) // Увеличиваем размер изображения
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(isSelected ? Color.white : Color.clear, lineWidth: 3)
-                    )
+                    .scaledToFill()
+                    .frame(width: 56, height: 56)
+                    .clipped()
+                    .cornerRadius(12)
                 
                 // Coach Info
                 VStack(alignment: .leading, spacing: 4) {
                     Text(coach.name)
-                        .font(.title3)
+                        .font(.headline)
                         .fontWeight(.bold)
-                        .foregroundColor(isSelected ? .white : .primary)
+                        .foregroundColor(.primary)
                     
                     Text(coach.tagline)
                         .font(.system(size: 16))
-                        .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
+                        .foregroundColor(.secondary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
                         .fixedSize(horizontal: false, vertical: true)
@@ -95,15 +92,15 @@ struct OnboardingCoachCard: View {
                 
                 Spacer()
             }
-            .padding(16)
+            .padding(14)
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(isSelected ? Color.accentColor : Color(.systemBackground))
-                    .shadow(color: .black.opacity(0.06), radius: 2, x: 0, y: 1)
+                    .fill(Color.white)
+                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 2)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(isSelected ? Color.accentColor : Color.clear, lineWidth: 2)
+                    .stroke(isSelected ? Color.flowSoftBlue : Color.clear, lineWidth: 2)
             )
             }
             .buttonStyle(FeedbackButtonStyle(feedbackType: .selection))
