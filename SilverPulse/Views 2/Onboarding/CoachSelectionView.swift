@@ -16,7 +16,7 @@ struct CoachSelectionView: View {
                         .lineLimit(1)
                     
                     Text("You can change anytime")
-                        .font(.caption)
+                        .font(.system(size: 14))
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                 }
@@ -56,6 +56,7 @@ struct CoachSelectionView: View {
         }
         .background(Color(.systemBackground))
     }
+    
 }
 
 struct OnboardingCoachCard: View {
@@ -85,10 +86,11 @@ struct OnboardingCoachCard: View {
                         .foregroundColor(isSelected ? .white : .primary)
                     
                     Text(coach.tagline)
-                        .font(.caption)
+                        .font(.system(size: 16))
                         .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
                         .multilineTextAlignment(.leading)
-                        .lineLimit(2)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 
                 Spacer()
